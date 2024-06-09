@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h1>Amazing Images</h1>
+    <div>
+        <ul id="images">
+            <li><img style="width: 200px; height: 100px;" id = 'couple' src="https://images.pexels.com/photos/23331343/pexels-photo-23331343/free-photo-of-a-black-and-white-photo-of-two-people-walking-on-a-stage.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="couple"></li>
+            <li><img style="width: 200px; height: 100px;" id="flower" src="https://images.pexels.com/photos/20697751/pexels-photo-20697751/free-photo-of-shot-with-oldroll-classic-m.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Flowers"></li>
+            <li><img style="width: 200px; height: 100px;" id="dog" src="https://images.pexels.com/photos/25643362/pexels-photo-25643362/free-photo-of-a-black-dog-with-a-stick-in-its-mouth.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Dog"></li>
+            <li><img style="width: 200px; height: 100px;" id="car" src="https://images.pexels.com/photos/25758512/pexels-photo-25758512/free-photo-of-american-car.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Car"></li>
+            <li><img style="width: 200px; height: 100px;" id="scooty" src="https://images.pexels.com/photos/25255204/pexels-photo-25255204/free-photo-of-red-scooter-on-amalfi-coast.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Scooty"></li>
+            <li><img style="width: 200px; height: 100px;" id="bear" src="https://images.pexels.com/photos/7515368/pexels-photo-7515368.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+        </ul>
+    </div>
+
+</body>
+<script>
+    // document.getElementById('dog').onclick = function(){
+    //     alert('Dog clicked')
+    // }
+
+    // Best Way to use addEventListener
+    //type, timeStamp, defaultPrevented
+    //target, toElement, srcElement, currentTarget
+    //clientX, ClientY, screenX, screenY
+    //altKey, ctrlKey, shiftKey, keyCode
+
+    // Event Bubbling->
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log('images clicked')
+    // },false)
+    // document.getElementById('dog').addEventListener('click',function(e){
+    //     console.log('Dog Clicked')
+    //     e.stopPropagation()
+    // },false)
+
+    // onclick remove images
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        if(e.target.tagName==='IMG'){
+            let removeIt = e.target.parentNode
+            // removeIt.remove()
+            removeIt.parentNode.removeChild(removeIt)
+        }
+    })
+</script>
+</html>
